@@ -1,0 +1,16 @@
+.pastel1 {
+  display: block;      /* centra la imagen */
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;         /* ocupa todo el ancho de la columna */
+  max-width: 600px;    /* tamaño máximo grande */
+  height: auto;        /* mantiene proporción */
+  border-radius: 10px;    /* sin bordes redondeados */
+  transition: transform 0.3s ease;
+}
+
+.pastel1:hover {
+  transform: scale(1.05); /* efecto hover opcional */
+}
+
+

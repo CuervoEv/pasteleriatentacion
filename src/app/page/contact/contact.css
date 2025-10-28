@@ -1,0 +1,10 @@
+form {
+  max-width: 500px;
+  margin: 40px auto;       /* Centra el formulario y añade espacio arriba y abajo */
+  padding: 30px 25px;      /* Espacio interno */
+  border: 1px solid #ccc;  /* Borde gris claro */
+  border-radius: 10px;     /* Bordes redondeados */
+  background-color: #fff1cc;  /* Fondo blanco */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  
+}

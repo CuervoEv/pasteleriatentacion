@@ -1,0 +1,26 @@
+.busqueda{
+    background-color: rgb(255, 216, 133);
+    color: bisque;
+    padding: 10px 0;
+}
+
+/* Estilo para el link activo (botón seleccionado) */
+.pala.active,
+.pala.active:focus,
+.pala.active:hover {
+  background-color: #a56224 !important; /* 🎨 Cambia este color a tu gusto */
+  color: rgb(250, 230, 175) !important;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Opcional: estilo para los demás botones */
+.pala {
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.pala:hover {
+  background-color: #ffe3a7;
+  color: #000;
+}
