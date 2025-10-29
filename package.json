@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "e2e": "ng e2e",
-    "deploy": "ng build --base-href \"https://github.com/CuervoEv/pasteleriatentacion.github.io/\" && npx angular-cli-ghpages --dir=dist/motos"
+    "deploy": "ng build --base-href \"https://CuervoEv.github.io/motos/\" && npx angular-cli-ghpages --dir=dist/motos"
   },
   "prettier": {
     "printWidth": 100,
