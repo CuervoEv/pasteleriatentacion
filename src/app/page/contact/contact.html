@@ -6,51 +6,39 @@
 
 
 <div class="container py-5">
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="row g-4 needs-validation" novalidate>
-
+  <form class="row g-4 needs-validation" novalidate>
     <div class="col-md-6">
       <label for="inputNombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Camila" ngModel required>
-      <div class="invalid-feedback" *ngIf="form.submitted && !form.controls['nombre']?.valid">
-        Por favor ingresa tu nombre.
-      </div>
+      <input type="text" class="form-control" id="inputNombre" placeholder="Camila" required>
+      <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
     </div>
 
     <div class="col-md-6">
       <label for="inputApellido" class="form-label">Apellido</label>
-      <input type="text" class="form-control" id="inputApellido" name="apellido" placeholder="Martinez" ngModel required>
-      <div class="invalid-feedback" *ngIf="form.submitted && !form.controls['apellido']?.valid">
-        Por favor ingresa tu apellido.
-      </div>
+      <input type="text" class="form-control" id="inputApellido" placeholder="Martinez" required>
+      <div class="invalid-feedback">Por favor ingresa tu apellido.</div>
     </div>
 
     <div class="col-md-6">
       <label for="inputEmail" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail" name="email" placeholder="camila.martinez@email.com" ngModel required email>
-      <div class="invalid-feedback" *ngIf="form.submitted && !form.controls['email']?.valid">
-        Por favor ingresa un correo válido.
-      </div>
+      <input type="email" class="form-control" id="inputEmail" placeholder="camila.martinez@email.com" required>
+      <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
     </div>
 
     <div class="col-md-6">
       <label for="inputCelular" class="form-label">Número de Celular</label>
-      <input type="tel" class="form-control" id="inputCelular" name="celular" placeholder="1234567890" ngModel required>
-      <div class="invalid-feedback" *ngIf="form.submitted && !form.controls['celular']?.valid">
-        Por favor ingresa tu número de celular.
-      </div>
+      <input type="tel" class="form-control" id="inputCelular" placeholder="1234567890" required>
+      <div class="invalid-feedback">Por favor ingresa tu número de celular.</div>
     </div>
 
     <div class="col-12">
       <label for="inputMensaje" class="form-label">Mensaje</label>
-      <textarea class="form-control" id="inputMensaje" name="mensaje" rows="4" placeholder="¡Quiero un pastel para mi cumpleaños 😊😊!" ngModel required></textarea>
-      <div class="invalid-feedback" *ngIf="form.submitted && !form.controls['mensaje']?.valid">
-        Por favor escribe tu mensaje.
-      </div>
+      <textarea class="form-control" id="inputMensaje" rows="4" placeholder="¡Quiero un pastel para mi cumpleaños 😊😊!" required></textarea>
+      <div class="invalid-feedback">Por favor escribe tu mensaje.</div>
     </div>
 
     <div class="col-12 text-center">
       <button type="submit" class="btn btn-primary px-5">Enviar</button>
     </div>
-
   </form>
 </div>
