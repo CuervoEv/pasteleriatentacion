@@ -15,8 +15,8 @@
 
 /* Bloque de texto debajo de la imagen */
 .welcome-section {
-  background: rgba(255, 255, 255, 0.25); /* fondo translúcido */
-  backdrop-filter: blur(10px);           /* difuminado tipo glass */
+  background: rgba(255, 255, 255, 0.); /* fondo translúcido */
+  backdrop-filter: blur(6px);           /* difuminado tipo glass */
   border-radius: 15px;                   /* bordes redondeados */
   display: inline-block;
   max-width: 700px;
@@ -58,8 +58,8 @@
 }
 
 .intro-section {
-  background: rgba(255, 255, 255, 0.25); /* fondo translúcido */
-  backdrop-filter: blur(10px);           /* difuminado tipo glass */
+  background: rgba(255, 255, 255, 0.1); /* fondo translúcido */
+  backdrop-filter: blur(6px);           /* difuminado tipo glass */
   border-radius: 15px;                   /* bordes redondeados */
   display: inline-block;
   max-width: 800px;
