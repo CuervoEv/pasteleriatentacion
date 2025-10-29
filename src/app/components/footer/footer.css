@@ -1,13 +1,36 @@
+body {
+  padding-bottom: 60px; /* 🔹 deja espacio equivalente al alto del footer */
+}
+
 h4 {
-  margin: 0; /* elimina margen externo del h4 */
+  margin: 0;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  text-align: center;
-  background-color: #f8f9fa;
-  padding: 10px 0;
-  font-size: 0.9rem;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #f8da87;
+  font-size: 0.8rem;
   color: #555;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #f5cb42;
+  z-index: 1000;
+  padding: 0 10px;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.1); /* 🔹 opcional: sutil sombra arriba */
 }
+.social-icon {
+  font-size: 1.6rem;
+  margin-left: 10px;
+  color: #d63384;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.social-icon:hover {
+  color: #ff69b4;
+}
+

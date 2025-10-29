@@ -8,3 +8,13 @@ form {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
   
 }
+.boton .btn-primary {
+  background-color: #f8da87; /* color de fondo deseado */
+  color: #81580c;            /* color del texto */
+  border: none;              /* opcional, quita borde */
+}
+
+.boton .btn-primary:hover {
+  background-color: #f5c542; /* color al pasar el mouse */
+  color: #fff;
+}

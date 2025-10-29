@@ -12,3 +12,13 @@
 .pastel:hover {
   transform: scale(1.05); /* efecto hover suave */
 }
+.container.text-center h1,
+.container.text-center p.lead {
+  background: rgba(255, 255, 255, 0.25); /* fondo translúcido */
+  backdrop-filter: blur(8px);            /* efecto difuminado */
+  border-radius: 15px;                   /* bordes redondeados */
+  padding: 20px 25px;
+  margin-bottom: 1.5rem;
+  color: #81580c;                           /* texto blanco para contraste */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* sombra suave */
+}

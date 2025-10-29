@@ -1,23 +1,33 @@
-.busqueda{
-    background-color: rgb(255, 216, 133);
-    color: bisque;
-    padding: 10px 0;
+.busqueda .nav-item {
+  margin: 0 40px; /* margen horizontal entre botones */
 }
 
-/* Estilo para el link activo (botón seleccionado) */
+/* Mantener centrado el nav */
+.busqueda {
+  background-color: rgb(255, 216, 133);
+  color: bisque;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center; /* centra los botones */
+  border-bottom: 1px solid #f5cb42;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Estilo para el link activo */
 .pala.active,
 .pala.active:focus,
 .pala.active:hover {
-  background-color: #a56224 !important; /* 🎨 Cambia este color a tu gusto */
+  background-color: #a56224 !important;
   color: rgb(250, 230, 175) !important;
   border-radius: 8px;
   border: none;
 }
 
-/* Opcional: estilo para los demás botones */
+/* Estilo para los demás botones */
 .pala {
   color: #333;
   transition: background-color 0.3s ease;
+  padding: 8px 15px; /* agrega padding para que se vean más grandes */
 }
 
 .pala:hover {
