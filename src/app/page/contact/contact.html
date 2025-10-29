@@ -5,28 +5,36 @@
 </div>
 
 
-<form class="row g-3">
+<form class="row g-3" novalidate>
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Nombre</label>
-    <input type="email" class="form-control" id="inputEmail4" placeholder="Camila">
+    <label for="inputNombre" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="inputNombre" placeholder="Camila" required>
   </div>
+
   <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Apellido</label>
-    <input type="password" class="form-control" id="inputPassword4" placeholder="Martinez">
+    <label for="inputApellido" class="form-label">Apellido</label>
+    <input type="text" class="form-control" id="inputApellido" placeholder="Martinez" required>
   </div>
+
   <div class="col-12">
-    <label for="inputAddress" class="form-label">Email</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="camila.martinez@email.com">
+    <label for="inputEmail" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="camila.martinez@email.com" required>
+    <div class="invalid-feedback">
+      Por favor ingresa un correo válido.
+    </div>
   </div>
+
   <div class="col-12">
-    <label for="inputAddress2" class="form-label">Numero de Celular</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="1234567890">
+    <label for="inputCelular" class="form-label">Número de Celular</label>
+    <input type="text" class="form-control" id="inputCelular" placeholder="1234567890" required>
   </div>
-  <div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="¡Quiero un pastel para mi cumpleaños 😊😊!"></textarea>
-</div>
-  <div class="boton col-12 boton">
+
+  <div class="col-12">
+    <label for="inputMensaje" class="form-label">Mensaje</label>
+    <textarea class="form-control" id="inputMensaje" rows="3" placeholder="¡Quiero un pastel para mi cumpleaños 😊😊!" required></textarea>
+  </div>
+
+  <div class="boton col-12">
     <button type="submit" class="btn btn-primary">Enviar</button>
   </div>
 </form>
