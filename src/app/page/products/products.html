@@ -1,6 +1,24 @@
 <div class="container mt-5 text-center">
   <h2 class="text-center mb-5">Nuestros Servicios 🍰</h2>
 
+
+<section class="productos">
+  @for (producto of productos; track producto.id) {
+    <div class="servicio">
+      <div class="img-circle">
+        <img [src]="producto.imagen" [alt]="producto.nombre">
+      </div>
+      <div class="info">
+        <h4>{{ producto.nombre }}</h4>
+        <p>{{ producto.descripcion }}</p>
+        <p><strong>Precio:</strong> {{ producto.precio | currency:'COP' }}</p>
+      </div>
+    </div>
+  }
+</section>
+
+<!---
+
   <div class="servicio">
     <div class="img-circle">
       <img src="img/personalizados.jpg" alt="Pasteles Personalizados">
@@ -52,4 +70,4 @@
       </p>
     </div>
   </div>
-</div>
+</div> -->
