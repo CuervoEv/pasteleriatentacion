@@ -1,0 +1,105 @@
+/* Contenedor general */
+.container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Encabezados */
+h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #81580c;
+}
+
+h5 {
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+/* Círculo de imagen */
+.img-circle {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.img-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Animación al pasar el mouse sobre la imagen */
+.img-circle:hover {
+  transform: scale(1.05);
+}
+
+/* Cuadro de información */
+.servicio {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Saltito al pasar el mouse sobre el cuadro */
+.servicio:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+/* Texto dentro del cuadro */
+.info p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* Botones personalizados */
+.btn-servicio {
+  display: inline-block;
+  background-color: #f7c364;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-servicio:hover {
+  background-color: #81580c;
+  transform: scale(1.05);
+}
+
+/* CTA Final */
+.mt-5 a.btn {
+  background-color: #28a745;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  padding: 12px 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mt-5 a.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Animación de saltito al cargar la página */
+@keyframes jump {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-8px); }
+  60% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+.servicio {
+  animation: jump 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
