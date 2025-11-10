@@ -1,3 +1,4 @@
+import { Productsyacomponent } from './page/productsya/productsya';
 import { Routes } from '@angular/router';
 import { ProductsComponent } from './page/products/products';
 import { About } from './page/about/about';
@@ -10,5 +11,6 @@ export const routes: Routes = [
     {path: 'nosotros', component:About},
     {path: 'productos', component:ProductsComponent},
     {path: 'contacto', component:Contact},
+    {path: 'productosya', component:Productsyacomponent},
     {path: '**', redirectTo: ''}
 ];

@@ -46,3 +46,21 @@ body {
   background: url('/img/fondo.jpg') no-repeat center center/cover;
   color: #333;
 }
+
+.btn-servicio {
+  background-color: #81580c;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  margin-top: 1rem;
+}
+
+.btn-servicio:hover {
+  background-color: #a86c12;
+  transform: scale(1.07);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
