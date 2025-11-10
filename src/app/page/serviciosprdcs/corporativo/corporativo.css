@@ -1,88 +1,103 @@
-/* Fondo general */
-body {
-  background: url('/img/fondo.jpg') no-repeat center center/cover;
-  color: #333;
-  font-family: 'Arial', sans-serif;
+/* ✅ Container principal mantiene estilo Bootstrap */
+.container.mt-5.text-center {
+  display: block;
 }
 
-/* Encabezados */
-h2 {
-  font-weight: 700;
-  font-size: 2.5rem;
-  color: #81580c;
-  text-align: center;
-  margin-bottom: 2rem;
+/* ✅ Contenedor grid solo para los servicios */
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  align-items: start;
+  margin-top: 2rem;
 }
 
-p {
-  font-size: 1rem;
-  color: #555;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-/* Cards catálogo */
-.card {
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  background: rgba(255, 255, 255, 0.1);
+/* ✅ Tarjetas de servicio */
+.servicio {
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(6px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.card img {
+  border-radius: 20px;
+  padding: 1.8rem 1.5rem;
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+/* ✅ Hover suave */
+.servicio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+/* ✅ Imagen redonda centrada */
+.img-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Títulos de card */
-.card-title {
+.img-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.img-circle img:hover {
+  transform: scale(1.06);
+}
+
+/* ✅ Texto centrado */
+.servicio h4 {
   color: #81580c;
-  font-weight: 600;
-  margin-top: 10px;
+  margin-bottom: 0.8rem;
+  text-align: center;
 }
 
-/* Botones */
-.btn-primary {
-  background-color: #f5c264;
+.servicio p {
+  color: #6e4b0d;
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* ✅ Botón */
+.btn-servicio {
+  background-color: #81580c;
   color: #fff;
   border: none;
   border-radius: 25px;
   padding: 10px 20px;
-  font-size: 1rem;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  font-size: 0.95rem;
+  cursor: pointer;
   margin-top: 1rem;
+  transition: 0.2s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.btn-primary:hover {
+.btn-servicio:hover {
   background-color: #a86c12;
   transform: scale(1.07);
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-/* Animación de salto al cargar */
-@keyframes jump {
-  0% { transform: translateY(0); }
-  30% { transform: translateY(-8px); }
-  60% { transform: translateY(0); }
-  100% { transform: translateY(-4px); }
+/* ✅ Responsive: Tablet - 2 columnas */
+@media (max-width: 992px) {
+  .servicios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.card {
-  animation: jump 1s ease-in-out;
-  animation-fill-mode: forwards;
+/* ✅ Responsive: Móvil - 1 columna */
+@media (max-width: 768px) {
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
 }
