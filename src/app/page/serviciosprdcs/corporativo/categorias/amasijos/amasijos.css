@@ -1,122 +1,102 @@
-/* 🔹 Contenedor principal */
-.container {
-  max-width: 1200px;
+/* 📌 Caja del encabezado con estilo blur */
+.header-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  color: #81580c;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-/* 🔹 Estilo del header con glassmorphism */
-.page-header {
-  background: rgba(255, 193, 7, 0.18);
-  border: 1px solid rgba(255, 193, 7, 0.35);
-  backdrop-filter: blur(14px);
-  border-radius: 18px;
-  padding: 30px;
-  margin-bottom: 50px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-
-/* 🔹 Títulos */
-.page-title {
-  font-size: 3rem;
-  color: #d97706;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* 🔹 Subtítulo */
-.page-subtitle {
-  font-size: 1.2rem;
-  color: #6b7280;
-  font-weight: 500;
-}
-
-/* 🔹 Tarjetas */
+/* 🥐 Tarjetas de producto */
 .card {
   border: none;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
-  background: #fffaf2;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.13);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
 }
 
-/* 🔹 Imágenes de producto */
+/* 🖼 Imagen del producto */
 .card-img-top {
-  border-bottom: 4px solid #facc15;
+  border-bottom: 3px solid #81580c;
 }
 
-/* 🔹 Titulos dentro de la tarjeta */
+/* 📝 Info de cada card */
 .card-title {
   font-weight: bold;
-  font-size: 1.3rem;
-  color: #b45309;
+  color: #81580c !important;
 }
 
-/* 🔹 Selectores */
-.form-select {
-  border-radius: 10px;
-  border: 2px solid #fbbf24 !important;
-  transition: .25s;
+.card-text {
+  color: #4c3a19;
 }
 
-.form-select:focus {
-  border-color: #d97706 !important;
-  box-shadow: 0 0 6px rgba(217,119,6,0.6);
+/* 🔢 Select y cantidad personalizada */
+.form-select,
+.form-control {
+  border-radius: 25px;
+  border: 2px solid #81580c44;
+  color: #4c3a19;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 🔹 Input personalizado */
-input.form-control {
-  border-radius: 10px;
-  border: 2px solid #fbbf24;
-}
-input.form-control:focus {
-  border-color: #d97706 !important;
-  box-shadow: 0 0 6px rgba(217,119,6,0.6);
+.form-select:focus,
+.form-control:focus {
+  border-color: #81580c;
+  box-shadow: 0 0 6px rgba(129, 88, 12, 0.6);
 }
 
-/* 🔹 Botón agregar */
-.btn-warning {
-  font-weight: 600;
-  border-radius: 12px;
-  padding: 10px 18px;
-  transition: .25s;
-}
-.btn-warning:hover {
-  background-color: #d97706;
-}
-
-/* 🔹 Carrito */
-.card-header {
+/* 💰 Precio total */
+.h5.text-success {
   font-weight: bold;
-  letter-spacing: .5px;
-  text-transform: uppercase;
+  color: #267300 !important;
 }
 
+/* 🧁 Botón agregar al carrito */
+button.btn-warning {
+  background-color: #81580c !important;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  color: #fff !important;
+}
+
+button.btn-warning:hover {
+  background-color: #a86c12 !important;
+  transform: scale(1.07);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* 🛒 Resumen del carrito */
+.card-header.bg-warning {
+  background-color: #81580c !important;
+  color: #fff !important;
+  border-radius: 15px 15px 0 0;
+}
+
+.card-body strong,
 .card-body small {
-  font-size: 0.85rem;
+  color: #4c3a19;
 }
 
-/* 🔹 Botón volver */
+/* 🔙 Botón volver */
 .btn-secondary {
-  border-radius: 12px;
-  padding: 8px 20px;
-  font-weight: 600;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn-secondary:hover {
-  background: #444;
-}
-
-/* 🔹 Ajustes responsive */
-@media (max-width: 576px) {
-  .page-title {
-    font-size: 2.1rem;
-  }
-  .card-img-top {
-    height: 200px;
-  }
+  transform: scale(1.05);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
 }
