@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { url } from 'node:inspector';
 
 export interface Product1 {
   id: number;
@@ -95,70 +96,70 @@ export class ProductsService {
       nombre: 'Galletas de Chocolate Chips',
       precio: 2000,
       descripcion: 'Crujientes galletas con chips de chocolate',
-      imagen: 'assets/img/galletas/chocolate-chips.jpg'
+      imagen: '/img/chipsdechocolate.jpg'
     },
     {
       id: 'avena-pasas',
       nombre: 'Galletas de Avena con Pasas',
       precio: 1800,
       descripcion: 'Galletas saludables de avena con pasas',
-      imagen: 'assets/img/galletas/avena-pasas.jpg'
+      imagen: '/img/avena.webp'
     },
     {
       id: 'mantequilla',
       nombre: 'Galletas de Mantequilla',
       precio: 1500,
       descripcion: 'Clásicas galletas de mantequilla doradas',
-      imagen: 'assets/img/galletas/mantequilla.jpg'
+      imagen: '/img/mantequilla.webp'
     },
     {
       id: 'coco',
       nombre: 'Galletas de Coco',
       precio: 2200,
       descripcion: 'Galletas esponjosas con coco rallado',
-      imagen: 'assets/img/galletas/coco.jpg'
+      imagen: '/img/coco.avif'
     },
     {
       id: 'jengibre',
       nombre: 'Galletas de Jengibre',
       precio: 2500,
       descripcion: 'Galletas especiadas con jengibre y canela',
-      imagen: 'assets/img/galletas/jengibre.jpg'
+      imagen: '/img/jengibre.jpg'
     },
     {
       id: 'limon',
       nombre: 'Galletas de Limón',
       precio: 1900,
       descripcion: 'Galletas refrescantes con ralladura de limón',
-      imagen: 'assets/img/galletas/limon.jpg'
+      imagen: '/img/limon.avif'
     },
     {
       id: 'vainilla',
-      nombre: 'Galletas de Vainilla',
+      nombre: 'Galletas de Chocolate',
       precio: 1600,
-      descripcion: 'Galletas suaves con esencia de vainilla',
-      imagen: 'assets/img/galletas/vainilla.jpg'
+      descripcion: 'Galletas con una explosion de chocolate',
+      imagen: '/img/chocolate.jpg'
     },
     {
       id: 'nuez',
       nombre: 'Galletas de Nuez',
       precio: 2800,
       descripcion: 'Galletas crujientes con nueces tostadas',
-      imagen: 'assets/img/galletas/nuez.jpg'
+      imagen: '/img/nuez.jpg'
     },
     {
       id: 'maria',
-      nombre: 'Galletas María',
+      nombre: 'Galletas Red-Velvet',
       precio: 1200,
-      descripcion: 'Galletas tipo María, perfectas para acompañar',
-      imagen: 'assets/img/galletas/maria.jpg'
+      descripcion: 'Galletas tipo Red-Velvet, perfectas para acompañar cualquier ocacion',
+      imagen: '/img/red.jpg'
     },
     {
       id: 'integral',
       nombre: 'Galletas Integrales',
       precio: 2100,
       descripcion: 'Galletas saludables con harina integral',
-      imagen: 'assets/img/galletas/integral.jpg'
+      imagen: '/img/integrales.avif'
     }
   ];
 
@@ -185,20 +186,7 @@ export class ProductsService {
       descripcion: 'Hojaldre dulce relleno de chocolate fundido',
       imagen: 'assets/img/hojaldre/chocolate.jpg'
     },
-    {
-      id: 'hojaldre-espinacas',
-      nombre: 'Hojaldre de Espinacas',
-      precio: 3000,
-      descripcion: 'Hojaldre relleno de espinacas y queso',
-      imagen: 'assets/img/hojaldre/espinacas.jpg'
-    },
-    {
-      id: 'hojaldre-champinones',
-      nombre: 'Hojaldre de Champiñones',
-      precio: 3300,
-      descripcion: 'Hojaldre relleno de champiñones salteados',
-      imagen: 'assets/img/hojaldre/champinones.jpg'
-    },
+
     {
       id: 'hojaldre-carne',
       nombre: 'Hojaldre de Carne',
@@ -207,33 +195,19 @@ export class ProductsService {
       imagen: 'assets/img/hojaldre/carne.jpg'
     },
     {
+      id: 'hojaldre-rollitos-canela',
+      nombre: 'Rollitos de Canela',
+      precio: 3500,
+      descripcion: 'Rollitos hojaldrados con mucho sabor',
+      imagen:''
+    },
+    {
       id: 'hojaldre-queso',
       nombre: 'Hojaldre de Queso',
       precio: 2700,
       descripcion: 'Hojaldre relleno exclusivamente de queso derretido',
       imagen: 'assets/img/hojaldre/queso.jpg'
     },
-    {
-      id: 'hojaldre-verduras',
-      nombre: 'Hojaldre de Verduras',
-      precio: 2900,
-      descripcion: 'Hojaldre relleno de mezcla de verduras frescas',
-      imagen: 'assets/img/hojaldre/verduras.jpg'
-    },
-    {
-      id: 'hojaldre-atun',
-      nombre: 'Hojaldre de Atún',
-      precio: 3100,
-      descripcion: 'Hojaldre relleno de atún con cebolla y tomate',
-      imagen: 'assets/img/hojaldre/atun.jpg'
-    },
-    {
-      id: 'hojaldre-dulce-leche',
-      nombre: 'Hojaldre de Dulce de Leche',
-      precio: 2600,
-      descripcion: 'Hojaldre dulce relleno de dulce de leche',
-      imagen: 'assets/img/hojaldre/dulce-leche.jpg'
-    }
   ];
 
   // Productos - UN SOLO ARRAY CORREGIDO
@@ -243,7 +217,7 @@ export class ProductsService {
       nombre: 'Arepas de Queso', 
       precio: 2500, 
       descripcion: 'Arepa de maíz blanco o amarillo, asada con delicioso queso.', 
-      imagen: 'assets/img/amasijos/arepa.jpg',
+      imagen: '/img/Arepadequeso.jpg',
       categoria: 'amasijos'
     },
     { 
@@ -251,7 +225,7 @@ export class ProductsService {
       nombre: 'Empanada', 
       precio: 2500, 
       descripcion: 'Empanada de maíz rellena de carne, pollo o papa. Crujiente por fuera, sabrosa por dentro.', 
-      imagen: 'assets/img/amasijos/empanada.jpg',
+      imagen: '/img/empanada.jpg',
       categoria: 'amasijos'
     },
     { 
@@ -259,7 +233,7 @@ export class ProductsService {
       nombre: 'Buñuelo', 
       precio: 2000, 
       descripcion: 'Esfera de masa de queso y almidón de yuca. Esencial en navidades colombianas.', 
-      imagen: '/img/amasijos/bunuelo.jpg',
+      imagen: '/img/buenuelo.jpg',
       categoria: 'amasijos'
     },
     { 
@@ -267,7 +241,7 @@ export class ProductsService {
       nombre: 'Pandebono', 
       precio: 2000, 
       descripcion: 'Panecillo de almidón de yuca y queso. Suave por dentro y ligeramente crujiente.', 
-      imagen: 'assets/img/amasijos/pandebono.jpg',
+      imagen: '/img/pandebono.jpg',
       categoria: 'amasijos'
     },
     { 
@@ -275,7 +249,7 @@ export class ProductsService {
       nombre: 'Almojábana', 
       precio: 2000, 
       descripcion: 'Pan de queso y harina de maíz. Perfecto para el desayuno o la merienda.', 
-      imagen: 'assets/img/amasijos/almojabana.jpg',
+      imagen: 'img/Almojabanas.jpeg',
       categoria: 'amasijos'
     },
     { 
@@ -283,7 +257,7 @@ export class ProductsService {
       nombre: 'Pastel de Yuca', 
       precio: 2500, 
       descripcion: 'El puré de yuca, suave y cremoso, se complementa con el relleno de carne, arroz y vegetales, aportando un sabor rico y satisfactorio', 
-      imagen: 'assets/img/amasijos/pan-yuca.jpg',
+      imagen: '/img/pasteldeyuca.jpg',
       categoria: 'amasijos'
     },
     // BEBIDAS - Con catálogos
@@ -292,7 +266,7 @@ export class ProductsService {
       nombre: 'Jugos Naturales', 
       precio: 0,
       descripcion: 'Selecciona tu sabor favorito de jugo natural', 
-      imagen: 'assets/img/bebidas/jugos-naturales.jpg',
+      imagen: '/img/jugnaturales.webp',
       categoria: 'bebidas',
       tieneCatalogo: true,
       catalogoId: 'jugos-naturales'
@@ -301,8 +275,8 @@ export class ProductsService {
       id: 8, 
       nombre: 'Yogures Mini', 
       precio: 0,
-      descripcion: 'Variedad de yogures bebibles individuales', 
-      imagen: 'assets/img/bebidas/yogures-mini.jpg',
+      descripcion: 'Variedad de yogures deliciosos', 
+      imagen: '/img/yogures.jpg',
       categoria: 'bebidas',
       tieneCatalogo: true,
       catalogoId: 'yogures-mini'
@@ -312,7 +286,7 @@ export class ProductsService {
       nombre: 'Productos Postobón', 
       precio: 0,
       descripcion: 'Gaseosas, aguas y bebidas energéticas', 
-      imagen: 'assets/img/bebidas/postobon-catalogo.jpg',
+      imagen: '/img/postobon.webp',
       categoria: 'bebidas', 
       tieneCatalogo: true,
       catalogoId: 'postobon'
@@ -332,7 +306,7 @@ export class ProductsService {
       nombre: 'Galletas Especiales', 
       precio: 0,
       descripcion: 'Galletas premium con ingredientes seleccionados', 
-      imagen: 'assets/img/galletas/galletas-especiales.jpg',
+      imagen: '/img/galletas.jpg',
       categoria: 'galletas',
       esGalletas: true
     },
