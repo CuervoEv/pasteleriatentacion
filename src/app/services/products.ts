@@ -249,7 +249,7 @@ export class ProductsService {
       nombre: 'Almojábana', 
       precio: 2000, 
       descripcion: 'Pan de queso y harina de maíz. Perfecto para el desayuno o la merienda.', 
-      imagen: 'https://cuervoev.github.io/pasteleriatentacionimg/Almojabanas.jpeg',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/Almojabanas.jpeg',
       categoria: 'amasijos'
     },
     { 
@@ -316,29 +316,38 @@ export class ProductsService {
       nombre: 'Hojaldres Especiales', 
       precio: 0,
       descripcion: 'Deliciosos hojaldres rellenos con ingredientes premium', 
-      imagen: 'assets/img/hojaldre/hojaldre-generico.jpg',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/canela.jpg',
       categoria: 'hojaldre',
       esHojaldre: true
     },
     { 
-      id: 13, 
-      nombre: 'Hojaldres Clásicos', 
-      precio: 0,
-      descripcion: 'Hojaldres tradicionales con los rellenos más populares', 
-      imagen: 'assets/img/hojaldre/hojaldre-clasico.jpg',
-      categoria: 'hojaldre',
-      esHojaldre: true
-    },
-    { 
-      id: 14, 
-      nombre: 'Hojaldres Dulces', 
-      precio: 0,
-      descripcion: 'Hojaldres dulces perfectos para el postre', 
-      imagen: 'assets/img/hojaldre/hojaldre-dulce.jpg',
-      categoria: 'hojaldre',
-      esHojaldre: true
-    }
-  ];
+    id: 15, 
+    nombre: 'Curso de Pastelería Básica', 
+    precio: 180000, 
+    descripcion: 'Aprende técnicas fundamentales de pastelería en 8 sesiones prácticas', 
+    imagen: '/img/cursos/pasteleria-basica.jpg',
+    categoria: 'cursos'
+  },
+  { 
+    id: 16, 
+    nombre: 'Curso de Decoración Avanzada', 
+    precio: 320000, 
+    descripcion: 'Domina técnicas profesionales de decoración en 12 sesiones intensivas', 
+    imagen: '/img/cursos/decoracion-avanzada.jpg',
+    categoria: 'cursos'
+  },
+  { 
+    id: 17, 
+    nombre: 'Curso de Panadería Artesanal', 
+    precio: 250000, 
+    descripcion: 'Especialízate en panadería artesanal con fermentación natural', 
+    imagen: '/img/cursos/panaderia-artesanal.jpg',
+    categoria: 'cursos'
+  }
+];
+   
+
+  
 
   getProducts(): Product1[] {
     return this.productos;

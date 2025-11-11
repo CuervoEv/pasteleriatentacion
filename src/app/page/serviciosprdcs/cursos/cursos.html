@@ -1,1 +1,95 @@
-<p>cursos works!</p>
+<div class="container mt-5">
+  <header class="text-center mb-5">
+    <h1 class="display-4 text-warning">🎓 Cursos de Pastelería</h1>
+    <p class="lead text-muted">Aprende el arte de la repostería con nuestros cursos especializados</p>
+  </header>
+
+  <!-- Cursos Grid -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    
+    <!-- Curso 1: Pastelería Básica -->
+    <div class="col" *ngFor="let curso of cursos">
+      <div class="card h-100 shadow-sm">
+        <img [src]="curso.imagen" [alt]="curso.nombre" class="card-img-top" style="height: 250px; object-fit: cover;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{curso.nombre}}</h5>
+          <p class="card-text flex-grow-1">
+            {{curso.descripcion}}
+          </p>
+          <ul class="list-unstyled">
+            <li>✅ 8 sesiones prácticas</li>
+            <li>✅ Materiales incluidos</li>
+            <li>✅ Certificado al finalizar</li>
+            <li>✅ Recetario digital</li>
+          </ul>
+          <div class="d-flex justify-content-between align-items-center mt-auto">
+            <span class="h5 text-success">${{curso.precio.toLocaleString()}}</span>
+            <button class="btn btn-warning" (click)="agregarAlCarrito(curso)">
+              Inscribirse
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Información adicional -->
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="card bg-light">
+        <div class="card-body">
+          <h5 class="card-title">💡 Información de los Cursos</h5>
+          <div class="row">
+            <div class="col-md-4">
+              <h6>📅 Duración</h6>
+              <p>4-6 semanas según el curso</p>
+            </div>
+            <div class="col-md-4">
+              <h6>🕐 Horarios</h6>
+              <p>Flexibles: mañana, tarde y fines de semana</p>
+            </div>
+            <div class="col-md-4">
+              <h6>👨‍🏫 Instructores</h6>
+              <p>Chef profesionales con amplia experiencia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resumen del Carrito -->
+  <div class="card mt-5" *ngIf="carrito.length > 0">
+    <div class="card-header bg-warning text-dark">
+      <h5 class="mb-0">🛒 Cursos Seleccionados</h5>
+    </div>
+    <div class="card-body">
+      <div *ngFor="let item of carrito; let i = index" class="d-flex justify-content-between border-bottom pb-2 mb-2">
+        <div>
+          <strong>{{item.nombre}}</strong><br>
+          <small>{{item.descripcion}}</small>
+          <button class="btn btn-sm btn-outline-danger ms-2" (click)="removerDelCarrito(i)">
+            ×
+          </button>
+        </div>
+        <div class="text-end">
+          <span class="h6">${{item.precio.toLocaleString()}}</span>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mt-3 pt-3 border-top">
+        <strong>Total a Pagar:</strong>
+        <strong class="h5 text-success">${{getTotalCarrito().toLocaleString()}}</strong>
+      </div>
+      <div class="text-center mt-3">
+        <button class="btn btn-success btn-lg">Proceder al Pago</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5">
+    <button class="btn btn-secondary" routerLink="/servicio/corporativo">
+      ← Volver a Corporativo
+    </button>
+  </div>
+</div>
