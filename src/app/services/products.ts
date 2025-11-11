@@ -96,70 +96,70 @@ export class ProductsService {
       nombre: 'Galletas de Chocolate Chips',
       precio: 2000,
       descripcion: 'Crujientes galletas con chips de chocolate',
-      imagen: '/img/chipsdechocolate.jpg'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/chipsdechocolate.jpg'
     },
     {
       id: 'avena-pasas',
       nombre: 'Galletas de Avena con Pasas',
       precio: 1800,
       descripcion: 'Galletas saludables de avena con pasas',
-      imagen: '/img/avena.webp'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/avena.webp'
     },
     {
       id: 'mantequilla',
       nombre: 'Galletas de Mantequilla',
       precio: 1500,
       descripcion: 'Clásicas galletas de mantequilla doradas',
-      imagen: '/img/mantequilla.webp'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/mantequilla.webp'
     },
     {
       id: 'coco',
       nombre: 'Galletas de Coco',
       precio: 2200,
       descripcion: 'Galletas esponjosas con coco rallado',
-      imagen: '/img/coco.avif'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/coco.avif'
     },
     {
       id: 'jengibre',
       nombre: 'Galletas de Jengibre',
       precio: 2500,
       descripcion: 'Galletas especiadas con jengibre y canela',
-      imagen: '/img/jengibre.jpg'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/jengibre.jpg'
     },
     {
       id: 'limon',
       nombre: 'Galletas de Limón',
       precio: 1900,
       descripcion: 'Galletas refrescantes con ralladura de limón',
-      imagen: '/img/limon.avif'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/limon.avif'
     },
     {
       id: 'vainilla',
       nombre: 'Galletas de Chocolate',
       precio: 1600,
       descripcion: 'Galletas con una explosion de chocolate',
-      imagen: '/img/chocolate.jpg'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/chocolate.jpg'
     },
     {
       id: 'nuez',
       nombre: 'Galletas de Nuez',
       precio: 2800,
       descripcion: 'Galletas crujientes con nueces tostadas',
-      imagen: '/img/nuez.jpg'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/nuez.jpg'
     },
     {
       id: 'maria',
       nombre: 'Galletas Red-Velvet',
       precio: 1200,
       descripcion: 'Galletas tipo Red-Velvet, perfectas para acompañar cualquier ocacion',
-      imagen: '/img/red.jpg'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/red.jpg'
     },
     {
       id: 'integral',
       nombre: 'Galletas Integrales',
       precio: 2100,
       descripcion: 'Galletas saludables con harina integral',
-      imagen: '/img/integrales.avif'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/integrales.avif'
     }
   ];
 
@@ -169,44 +169,44 @@ export class ProductsService {
       id: 'hojaldre-jamon-queso',
       nombre: 'Hojaldre de Jamón y Queso',
       precio: 3000,
-      descripcion: 'Delicioso hojaldre relleno de jamón y queso derretido',
-      imagen: '/img/jamonyquesi.jpg'
+      descripcion: 'Deliciosos bocadillos de hojaldre relleno de jamón y queso',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/jamonyquesi.jpg'
     },
     {
       id: 'hojaldre-pollo',
       nombre: 'Pastel de Pollo',
       precio: 3000,
       descripcion: 'Hojaldre relleno de pollo desmechado con especias',
-      imagen: 'assets/img/hojaldre/pollo.jpg'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/Pasteldepollo.jpeg'
     },
     {
       id: 'hojaldre-chocolate',
-      nombre: 'Hojaldre de Chocolate',
+      nombre: 'Cruassant de Chocolate',
       precio: 2800,
       descripcion: 'Hojaldre dulce relleno de chocolate fundido',
-      imagen: 'assets/img/hojaldre/chocolate.jpg'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/crochocolate.jpg'
     },
 
     {
       id: 'hojaldre-carne',
-      nombre: 'Hojaldre de Carne',
-      precio: 3400,
+      nombre: 'Emppanadas Hojaldradas',
+      precio: 3000,
       descripcion: 'Hojaldre relleno de carne molida sazonada',
-      imagen: 'assets/img/hojaldre/carne.jpg'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/hojalempanada.jpg'
     },
     {
       id: 'hojaldre-rollitos-canela',
       nombre: 'Rollitos de Canela',
       precio: 3500,
       descripcion: 'Rollitos hojaldrados con mucho sabor',
-      imagen:''
+      imagen:'https://cuervoev.github.io/pasteleriatentacion/img/canela.jpg'
     },
     {
       id: 'hojaldre-queso',
-      nombre: 'Hojaldre de Queso',
+      nombre: 'Deditos de Queso',
       precio: 2700,
       descripcion: 'Hojaldre relleno exclusivamente de queso derretido',
-      imagen: 'assets/img/hojaldre/queso.jpg'
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/deditosdequeso.jpg'
     },
   ];
 
@@ -217,7 +217,7 @@ export class ProductsService {
       nombre: 'Arepas de Queso', 
       precio: 2500, 
       descripcion: 'Arepa de maíz blanco o amarillo, asada con delicioso queso.', 
-      imagen: '/img/Arepadequeso.jpg',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/Arepadequeso.jpg',
       categoria: 'amasijos'
     },
     { 
@@ -225,7 +225,7 @@ export class ProductsService {
       nombre: 'Empanada', 
       precio: 2500, 
       descripcion: 'Empanada de maíz rellena de carne, pollo o papa. Crujiente por fuera, sabrosa por dentro.', 
-      imagen: '/img/empanada.jpg',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/empanada.jpg',
       categoria: 'amasijos'
     },
     { 
@@ -233,7 +233,7 @@ export class ProductsService {
       nombre: 'Buñuelo', 
       precio: 2000, 
       descripcion: 'Esfera de masa de queso y almidón de yuca. Esencial en navidades colombianas.', 
-      imagen: '/img/buenuelo.jpg',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/buenuelo.jpg',
       categoria: 'amasijos'
     },
     { 
@@ -241,7 +241,7 @@ export class ProductsService {
       nombre: 'Pandebono', 
       precio: 2000, 
       descripcion: 'Panecillo de almidón de yuca y queso. Suave por dentro y ligeramente crujiente.', 
-      imagen: '/img/pandebono.jpg',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/pandebono.jpg',
       categoria: 'amasijos'
     },
     { 
@@ -249,7 +249,7 @@ export class ProductsService {
       nombre: 'Almojábana', 
       precio: 2000, 
       descripcion: 'Pan de queso y harina de maíz. Perfecto para el desayuno o la merienda.', 
-      imagen: 'img/Almojabanas.jpeg',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacionimg/Almojabanas.jpeg',
       categoria: 'amasijos'
     },
     { 
@@ -257,7 +257,7 @@ export class ProductsService {
       nombre: 'Pastel de Yuca', 
       precio: 2500, 
       descripcion: 'El puré de yuca, suave y cremoso, se complementa con el relleno de carne, arroz y vegetales, aportando un sabor rico y satisfactorio', 
-      imagen: '/img/pasteldeyuca.jpg',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/pasteldeyuca.jpg',
       categoria: 'amasijos'
     },
     // BEBIDAS - Con catálogos
@@ -266,7 +266,7 @@ export class ProductsService {
       nombre: 'Jugos Naturales', 
       precio: 0,
       descripcion: 'Selecciona tu sabor favorito de jugo natural', 
-      imagen: '/img/jugnaturales.webp',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/jugnaturales.webp',
       categoria: 'bebidas',
       tieneCatalogo: true,
       catalogoId: 'jugos-naturales'
@@ -276,7 +276,7 @@ export class ProductsService {
       nombre: 'Yogures Mini', 
       precio: 0,
       descripcion: 'Variedad de yogures deliciosos', 
-      imagen: '/img/yogures.jpg',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/yogures.jpg',
       categoria: 'bebidas',
       tieneCatalogo: true,
       catalogoId: 'yogures-mini'
@@ -286,7 +286,7 @@ export class ProductsService {
       nombre: 'Productos Postobón', 
       precio: 0,
       descripcion: 'Gaseosas, aguas y bebidas energéticas', 
-      imagen: '/img/postobon.webp',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/postobon.webp',
       categoria: 'bebidas', 
       tieneCatalogo: true,
       catalogoId: 'postobon'
@@ -297,7 +297,7 @@ export class ProductsService {
       nombre: 'Galletas Artesanales', 
       precio: 0,
       descripcion: 'Selecciona tu tipo favorito de galleta artesanal', 
-      imagen: 'assets/img/galletas/galletas-generico.jpg',
+      imagen: 'https://cuervoev.github.io/pasteleriatentacion/',
       categoria: 'galletas',
       esGalletas: true
     },

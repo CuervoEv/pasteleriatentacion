@@ -48,7 +48,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/pasteleriatentacion/"
+              "baseHref": "https://cuervoev.github.io/pasteleriatentacion/"
             },
             "development": {
               "optimization": false,
