@@ -1,1 +1,114 @@
-<p>hojaldres works!</p>
+<div class="container mt-5">
+  <header class="text-center mb-5">
+    <h1 class="display-4 text-warning">🥐 Hojaldres Artesanales</h1>
+    <p class="lead text-muted">Deliciosos hojaldres rellenos, horneados al instante</p>
+  </header>
+
+  <!-- Producto único extendido horizontalmente -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow-sm mb-4">
+        <div class="row g-0">
+          <!-- Imagen dinámica según el hojaldre seleccionado -->
+          <div class="col-md-6">
+            <img [src]="getImagenHojaldre(producto)" [alt]="producto.nombre" class="card-img h-100" style="object-fit: cover; min-height: 400px;">
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card-body d-flex flex-column h-100">
+              <h5 class="card-title">{{producto.nombre}}</h5>
+              <p class="card-text flex-grow-1">{{producto.descripcion}}</p>
+
+              <!-- Selector de Tipo de Hojaldre -->
+              <div class="mb-3">
+                <label class="form-label fw-bold">Tipo de Hojaldre:</label>
+                <select class="form-select" [(ngModel)]="producto.hojaldreSeleccionadaId" (change)="onHojaldreSeleccionadaChange(producto)">
+                  <option value="">-- Elegir tipo --</option>
+                  <option *ngFor="let hojaldre of getHojaldreOpciones()" [value]="hojaldre.id">
+                    {{hojaldre.nombre}} - ${{hojaldre.precio.toLocaleString()}}
+                  </option>
+                </select>
+              </div>
+
+              <!-- Selector de Cantidad -->
+              <div class="mb-3">
+                <label class="form-label fw-bold">Cantidad:</label>
+                <select class="form-select mb-2" [(ngModel)]="producto.opcionCantidad" (change)="onOpcionCantidadChange(producto)">
+                  <option value="30">30 unidades</option>
+                  <option value="50">50 unidades</option>
+                  <option value="100">100 unidades</option>
+                  <option value="200">200 unidades</option>
+                  <option value="personalizada">Cantidad personalizada</option>
+                </select>
+
+                <div *ngIf="producto.opcionCantidad === 'personalizada'" class="mt-2">
+                  <input type="number" 
+                         class="form-control" 
+                         [(ngModel)]="producto.cantidadPersonalizada"
+                         (input)="onCantidadPersonalizadaChange(producto)"
+                         placeholder="Ingresa la cantidad" 
+                         min="1"
+                         step="1">
+                  <small class="text-muted">Ingresa la cantidad deseada</small>
+                </div>
+              </div>
+
+              <!-- Precio y Descuento -->
+              <div *ngIf="producto.hojaldreSeleccionada && producto.cantidad > 1" class="mb-2">
+                <small class="text-muted">
+                  Precio unitario: ${{getHojaldreSeleccionada(producto)!.precio.toLocaleString()}}<br>
+                  Cantidad: {{producto.cantidad}} unidades<br>
+                  Descuento aplicado: {{getDescuento(producto.cantidad)}}%
+                </small>
+              </div>
+
+              <!-- Precio Total y Botón Agregar -->
+              <div class="d-flex justify-content-between align-items-center mt-auto" *ngIf="producto.hojaldreSeleccionada">
+                <span class="h5 text-success">Total: ${{getPrecioTotal(producto).toLocaleString()}}</span>
+                <button class="btn btn-warning btn-lg" (click)="agregarAlCarrito(producto)">
+                  Agregar al Pedido
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resumen del Carrito -->
+  <div class="card mt-5" *ngIf="carrito.length > 0">
+    <div class="card-header bg-warning text-dark">
+      <h5 class="mb-0">🛒 Resumen de tu Pedido Cooperativo</h5>
+    </div>
+    <div class="card-body">
+      <div *ngFor="let item of carrito; let i = index" class="d-flex justify-content-between border-bottom pb-2 mb-2">
+        <div>
+          <strong>{{item.nombre}}</strong><br>
+          <small>{{item.cantidad}} unidades x ${{item.precioUnitario.toLocaleString()}}</small>
+          <button class="btn btn-sm btn-outline-danger ms-2" (click)="removerDelCarrito(i)">
+            ×
+          </button>
+        </div>
+        <div class="text-end">
+          <span class="h6">${{item.precioTotal.toLocaleString()}}</span><br>
+          <small class="text-success">Ahorro: ${{item.ahorro.toLocaleString()}}</small>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mt-3 pt-3 border-top">
+        <strong>Total del Pedido:</strong>
+        <strong class="h5 text-success">${{getTotalCarrito().toLocaleString()}}</strong>
+      </div>
+      <div class="d-flex justify-content-between">
+        <small class="text-success">Total Ahorrado:</small>
+        <small class="text-success">${{getTotalAhorrado().toLocaleString()}}</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5">
+    <button class="btn btn-secondary" routerLink="/servicio/corporativo">
+      ← Volver a Corporativo
+    </button>
+  </div>
+</div>

@@ -15,7 +15,7 @@ import { Amasijos} from './page/serviciosprdcs/corporativo/categorias/amasijos/a
 import { Bebidas } from './page/serviciosprdcs/corporativo/categorias/bebidas/bebidas';
 import { Dulces } from './page/serviciosprdcs/corporativo/categorias/dulces/dulces';
 import { Galletas} from './page/serviciosprdcs/corporativo/categorias/galletas/galletas';
-import { Hojaldres } from './page/serviciosprdcs/corporativo/categorias/hojaldres/hojaldres';
+import { HojaldresComponent } from './page/serviciosprdcs/corporativo/categorias/hojaldres/hojaldres';
 import { Postres } from './page/serviciosprdcs/corporativo/categorias/postres/postres';
 
 export const routes: Routes = [
@@ -35,7 +35,7 @@ export const routes: Routes = [
   { path: 'servicio/corporativo/bebidas', component: Bebidas },
   { path: 'servicio/corporativo/dulces', component: Dulces },
   { path: 'servicio/corporativo/galletas', component: Galletas },
-  { path: 'servicio/corporativo/hojaldres', component: Hojaldres },
+  { path: 'servicio/corporativo/hojaldres', component: HojaldresComponent  },
   { path: 'servicio/corporativo/postres', component: Postres },
 
   { path: '**', redirectTo: '' }

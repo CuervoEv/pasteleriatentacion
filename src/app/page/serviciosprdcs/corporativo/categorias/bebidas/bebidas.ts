@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ProductsService, Product1, Catalogo, OpcionCatalogo } from '../../../../../services/products';
+import { ProductsService, Product1, OpcionCatalogo } from '../../../../../services/products';
 
-// Interfaces extendidas (eliminar OpcionConCantidad)
+// Interfaces extendidas
 interface ProductoConCantidad extends Product1 {
   cantidad: number;
   opcionCantidad: string;
   cantidadPersonalizada: number;
+  opcionSeleccionadaId?: string;
+  opcionSeleccionada?: OpcionCatalogo;
 }
 
 interface ProductoCarrito extends Product1 {
@@ -29,16 +31,6 @@ interface ProductoCarrito extends Product1 {
 export class Bebidas implements OnInit {
   productos: ProductoConCantidad[] = [];
   carrito: ProductoCarrito[] = [];
-  
-  // Variables para acordeón (eliminar opcionesMultiples)
-  productoDesplegado: ProductoConCantidad | null = null;
-  opcionSeleccionada: OpcionCatalogo | null = null;
-  cantidadCatalogo: number = 30;
-  totalCatalogo: number = 0;
-
-  // Variables para cantidad personalizada en catálogo
-  opcionCantidadCatalogo: string = '30';
-  cantidadPersonalizadaCatalogo: number = 30;
 
   constructor(private productsService: ProductsService) {}
 
@@ -46,13 +38,15 @@ export class Bebidas implements OnInit {
     const productosBase = this.productsService.getProductsByCategory('bebidas');
     this.productos = productosBase.map(producto => ({
       ...producto,
-      cantidad: 1,
-      opcionCantidad: '1',
-      cantidadPersonalizada: 1
+      cantidad: 30,
+      opcionCantidad: '30',
+      cantidadPersonalizada: 30,
+      opcionSeleccionadaId: '',
+      opcionSeleccionada: undefined
     }));
   }
 
-  // ========== MÉTODOS PARA PRODUCTOS NORMALES ==========
+  // ========== MÉTODOS COMUNES ==========
 
   onOpcionCantidadChange(producto: ProductoConCantidad) {
     if (producto.opcionCantidad === 'personalizada') {
@@ -68,6 +62,21 @@ export class Bebidas implements OnInit {
       producto.cantidad = producto.cantidadPersonalizada || 1;
     }
   }
+
+  onOpcionSeleccionadaChange(producto: ProductoConCantidad) {
+    const opciones = this.getCatalogoOpciones(producto.catalogoId!);
+    producto.opcionSeleccionada = opciones.find(op => op.id === producto.opcionSeleccionadaId);
+  }
+
+  getDescuento(cantidad: number): number {
+    if (cantidad >= 200) return 20;
+    if (cantidad >= 100) return 15;
+    if (cantidad >= 50) return 10;
+    if (cantidad >= 30) return 5;
+    return 0;
+  }
+
+  // ========== MÉTODOS PARA PRODUCTOS NORMALES ==========
 
   getPrecioTotal(producto: ProductoConCantidad): number {
     if (!producto.tieneCatalogo) {
@@ -102,115 +111,55 @@ export class Bebidas implements OnInit {
     }
   }
 
-  // ========== MÉTODOS ACORDEÓN CATÁLOGOS ==========
-
-  toggleCatalogo(producto: ProductoConCantidad) {
-    if (this.productoDesplegado?.id === producto.id) {
-      this.productoDesplegado = null;
-      this.opcionSeleccionada = null;
-      // Resetear opciones de cantidad del catálogo
-      this.opcionCantidadCatalogo = '30';
-      this.cantidadPersonalizadaCatalogo = 30;
-      this.cantidadCatalogo = 30;
-    } else {
-      this.productoDesplegado = producto;
-      // Inicializar opciones de cantidad
-      this.opcionCantidadCatalogo = '30';
-      this.cantidadPersonalizadaCatalogo = 30;
-      this.cantidadCatalogo = 30;
-    }
-  }
+  // ========== MÉTODOS PARA CATÁLOGOS ==========
 
   getCatalogoOpciones(catalogoId: string): OpcionCatalogo[] {
     const catalogo = this.productsService.getCatalogoById(catalogoId);
     return catalogo?.opciones || [];
   }
 
-  seleccionarOpcionUnica(opcion: OpcionCatalogo, producto: ProductoConCantidad) {
-    this.opcionSeleccionada = opcion;
-    this.calcularTotalCatalogo();
+  getOpcionSeleccionada(producto: ProductoConCantidad): OpcionCatalogo | null {
+    return producto.opcionSeleccionada || null;
   }
 
-  // ========== MÉTODOS PARA CANTIDAD PERSONALIZADA EN CATÁLOGO ==========
-
-  onCantidadCatalogoChange() {
-    if (this.opcionCantidadCatalogo === 'personalizada') {
-      this.cantidadCatalogo = this.cantidadPersonalizadaCatalogo || 1;
-    } else {
-      this.cantidadCatalogo = parseInt(this.opcionCantidadCatalogo);
-      this.cantidadPersonalizadaCatalogo = this.cantidadCatalogo;
+  getPrecioTotalCatalogo(producto: ProductoConCantidad): number {
+    if (producto.opcionSeleccionada) {
+      const descuento = this.getDescuento(producto.cantidad);
+      const precioSinDescuento = producto.opcionSeleccionada.precio * producto.cantidad;
+      const descuentoAplicado = precioSinDescuento * (descuento / 100);
+      return Math.round(precioSinDescuento - descuentoAplicado);
     }
-    this.calcularTotalCatalogo();
-  }
-
-  onCantidadPersonalizadaCatalogoChange() {
-    if (this.opcionCantidadCatalogo === 'personalizada') {
-      this.cantidadCatalogo = this.cantidadPersonalizadaCatalogo || 1;
-      this.calcularTotalCatalogo();
-    }
-  }
-
-  getCantidadFinalCatalogo(): number {
-    return this.cantidadCatalogo;
-  }
-
-  // ========== MÉTODOS PRECIOS Y DESCUENTOS ==========
-
-  getDescuento(cantidad: number): number {
-    if (cantidad >= 200) return 20;
-    if (cantidad >= 100) return 15;
-    if (cantidad >= 50) return 10;
-    if (cantidad >= 30) return 5;
     return 0;
   }
 
-  // MÉTODO SIMPLIFICADO - SOLO SELECCIÓN ÚNICA
-  calcularTotalCatalogo() {
-    let total = 0;
-
-    // Solo para selección única
-    if (this.opcionSeleccionada) {
-      const precioBase = this.opcionSeleccionada.precio * this.cantidadCatalogo;
-      const descuento = this.getDescuento(this.cantidadCatalogo);
-      total = Math.round(precioBase * (1 - descuento / 100));
-    }
-
-    this.totalCatalogo = total;
-  }
-
-  // ========== MÉTODOS CARRITO ==========
-
-  // MÉTODO SIMPLIFICADO - SOLO SELECCIÓN ÚNICA
   agregarCatalogoAlCarrito(producto: ProductoConCantidad) {
-    // Solo para selección única
-    if (this.opcionSeleccionada) {
-      const precioSinDescuento = this.opcionSeleccionada.precio * this.cantidadCatalogo;
-      const ahorro = precioSinDescuento - this.totalCatalogo;
+    if (producto.opcionSeleccionada) {
+      const precioTotal = this.getPrecioTotalCatalogo(producto);
+      const precioSinDescuento = producto.opcionSeleccionada.precio * producto.cantidad;
+      const ahorro = precioSinDescuento - precioTotal;
 
       const productoCarrito: ProductoCarrito = {
         ...producto,
-        nombre: `${producto.nombre} - ${this.opcionSeleccionada.nombre}`,
-        precio: this.opcionSeleccionada.precio,
-        descripcion: this.opcionSeleccionada.descripcion,
-        imagen: this.opcionSeleccionada.imagen,
-        cantidad: this.cantidadCatalogo,
-        precioUnitario: this.opcionSeleccionada.precio,
-        precioTotal: this.totalCatalogo,
+        nombre: `${producto.nombre} - ${producto.opcionSeleccionada.nombre}`,
+        precio: producto.opcionSeleccionada.precio,
+        descripcion: producto.opcionSeleccionada.descripcion,
+        imagen: producto.opcionSeleccionada.imagen,
+        cantidad: producto.cantidad,
+        precioUnitario: producto.opcionSeleccionada.precio,
+        precioTotal: precioTotal,
         ahorro: ahorro,
-        opcionSeleccionada: this.opcionSeleccionada
+        opcionSeleccionada: producto.opcionSeleccionada
       };
 
       this.carrito.push(productoCarrito);
-    }
 
-    // Resetear
-    this.productoDesplegado = null;
-    this.opcionSeleccionada = null;
-    this.cantidadCatalogo = 30;
-    this.opcionCantidadCatalogo = '30';
-    this.cantidadPersonalizadaCatalogo = 30;
-    this.totalCatalogo = 0;
+      // Resetear solo la opción seleccionada
+      producto.opcionSeleccionadaId = '';
+      producto.opcionSeleccionada = undefined;
+    }
   }
+
+  // ========== MÉTODOS DEL CARRITO ==========
 
   getTotalCarrito(): number {
     return this.carrito.reduce((total, item) => total + item.precioTotal, 0);

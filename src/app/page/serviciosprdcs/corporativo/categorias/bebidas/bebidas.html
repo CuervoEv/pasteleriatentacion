@@ -30,7 +30,6 @@
                        class="form-control" 
                        [(ngModel)]="producto.cantidadPersonalizada"
                        (input)="onCantidadPersonalizadaChange(producto)"
-                       (change)="onCantidadPersonalizadaChange(producto)"
                        placeholder="Ingresa la cantidad" 
                        min="1"
                        step="1">
@@ -46,82 +45,60 @@
             </div>
           </div>
 
-          <!-- PRODUCTOS CON CATÁLOGO - ACORDEÓN -->
+          <!-- PRODUCTOS CON CATÁLOGO (mostrar todo directamente) -->
           <div *ngIf="producto.tieneCatalogo">
-            <button class="btn btn-outline-info w-100 mb-3" 
-                    (click)="toggleCatalogo(producto)"
-                    [class.active]="productoDesplegado?.id === producto.id">
-              🎯 {{productoDesplegado?.id === producto.id ? 'Ocultar' : 'Ver'}} Opciones
-            </button>
+            
+            <!-- Opciones del catálogo -->
+            <div class="mb-3">
+              <label class="form-label">Selecciona una opción:</label>
+              <select class="form-select" [(ngModel)]="producto.opcionSeleccionadaId" (change)="onOpcionSeleccionadaChange(producto)">
+                <option value="">-- Elegir opción --</option>
+                <option *ngFor="let opcion of getCatalogoOpciones(producto.catalogoId!)" [value]="opcion.id">
+                  {{opcion.nombre}} - ${{opcion.precio.toLocaleString()}}
+                </option>
+              </select>
+            </div>
 
-            <!-- Acordeón desplegable -->
-            <div *ngIf="productoDesplegado?.id === producto.id" class="catalogo-acordeon">
-              <div *ngIf="getCatalogoOpciones(producto.catalogoId!) as opciones">
-                
-                <!-- SOLO SELECCIÓN ÚNICA PARA TODOS LOS CATÁLOGOS -->
-                <div>
-                  <h6 class="mb-3">Elige tu opción:</h6>
-                  <div class="list-group mb-3">
-                    <button *ngFor="let opcion of opciones" 
-                            type="button"
-                            class="list-group-item list-group-item-action"
-                            [class.active]="opcionSeleccionada?.id === opcion.id"
-                            (click)="seleccionarOpcionUnica(opcion, producto)">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <strong>{{opcion.nombre}}</strong>
-                          <br>
-                          <small>{{opcion.descripcion}}</small>
-                        </div>
-                        <span class="text-success">${{opcion.precio.toLocaleString()}}</span>
-                      </div>
-                    </button>
-                  </div>
-                </div>
+            <!-- Selector de cantidad -->
+            <div class="mb-3">
+              <label class="form-label">Cantidad:</label>
+              <select class="form-select mb-2" [(ngModel)]="producto.opcionCantidad" (change)="onOpcionCantidadChange(producto)">
+                <option value="30">30 unidades</option>
+                <option value="50">50 unidades</option>
+                <option value="100">100 unidades</option>
+                <option value="200">200 unidades</option>
+                <option value="personalizada">Cantidad personalizada</option>
+              </select>
 
-                <!-- Selector de cantidad general para el catálogo -->
-                <div class="mt-3" *ngIf="opcionSeleccionada">
-                  <label class="form-label">Cantidad:</label>
-                  <select class="form-select mb-2" [(ngModel)]="opcionCantidadCatalogo" (change)="onCantidadCatalogoChange()">
-                    <option value="30">30 unidades</option>
-                    <option value="50">50 unidades</option>
-                    <option value="100">100 unidades</option>
-                    <option value="200">200 unidades</option>
-                    <option value="personalizada">Cantidad personalizada</option>
-                  </select>
-
-                  <!-- Input para cantidad personalizada del catálogo -->
-                  <div *ngIf="opcionCantidadCatalogo === 'personalizada'" class="mt-2">
-                    <input type="number" 
-                           class="form-control" 
-                           [(ngModel)]="cantidadPersonalizadaCatalogo"
-                           (input)="onCantidadPersonalizadaCatalogoChange()"
-                           (change)="onCantidadPersonalizadaCatalogoChange()"
-                           placeholder="Ingresa la cantidad" 
-                           min="1"
-                           step="1">
-                    <small class="text-muted">Ingresa la cantidad deseada</small>
-                  </div>
-                </div>
-
-                <!-- Resumen y botón agregar -->
-                <div class="mt-3" *ngIf="opcionSeleccionada">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                      <strong>Total: ${{totalCatalogo.toLocaleString()}}</strong>
-                      <br>
-                      <small class="text-muted" *ngIf="getCantidadFinalCatalogo() > 1">
-                        Descuento aplicado: {{getDescuento(getCantidadFinalCatalogo())}}%
-                      </small>
-                    </div>
-                    <button class="btn btn-success" (click)="agregarCatalogoAlCarrito(producto)">
-                      Agregar al Pedido
-                    </button>
-                  </div>
-                </div>
-
+              <div *ngIf="producto.opcionCantidad === 'personalizada'" class="mt-2">
+                <input type="number" 
+                       class="form-control" 
+                       [(ngModel)]="producto.cantidadPersonalizada"
+                       (input)="onCantidadPersonalizadaChange(producto)"
+                       placeholder="Ingresa la cantidad" 
+                       min="1"
+                       step="1">
+                <small class="text-muted">Ingresa la cantidad deseada</small>
               </div>
             </div>
+
+            <!-- Precio y Descuento -->
+            <div *ngIf="producto.opcionSeleccionada && producto.cantidad > 1" class="mb-2">
+              <small class="text-muted">
+                Precio unitario: ${{getOpcionSeleccionada(producto)!.precio.toLocaleString()}}<br>
+                Cantidad: {{producto.cantidad}} unidades<br>
+                Descuento aplicado: {{getDescuento(producto.cantidad)}}%
+              </small>
+            </div>
+
+            <!-- Precio Total y Botón Agregar -->
+            <div class="d-flex justify-content-between align-items-center mt-auto" *ngIf="producto.opcionSeleccionada">
+              <span class="h5 text-success">Total: ${{getPrecioTotalCatalogo(producto).toLocaleString()}}</span>
+              <button class="btn btn-success btn-sm" (click)="agregarCatalogoAlCarrito(producto)">
+                Agregar al Pedido
+              </button>
+            </div>
+
           </div>
 
         </div>
@@ -140,7 +117,7 @@
         <div>
           <strong>{{item.nombre}}</strong><br>
           <small>{{item.cantidad}} unidades x ${{item.precioUnitario.toLocaleString()}}</small>
-          <button *ngIf="item.opcionSeleccionada" class="btn btn-sm btn-outline-danger ms-2" (click)="removerDelCarrito(i)">
+          <button class="btn btn-sm btn-outline-danger ms-2" (click)="removerDelCarrito(i)">
             ×
           </button>
         </div>
