@@ -168,14 +168,14 @@ export class ProductsService {
     {
       id: 'hojaldre-jamon-queso',
       nombre: 'Hojaldre de Jamón y Queso',
-      precio: 3500,
+      precio: 3000,
       descripcion: 'Delicioso hojaldre relleno de jamón y queso derretido',
-      imagen: 'assets/img/hojaldre/jamon-queso.jpg'
+      imagen: '/img/jamonyquesi.jpg'
     },
     {
       id: 'hojaldre-pollo',
-      nombre: 'Hojaldre de Pollo',
-      precio: 3200,
+      nombre: 'Pastel de Pollo',
+      precio: 3000,
       descripcion: 'Hojaldre relleno de pollo desmechado con especias',
       imagen: 'assets/img/hojaldre/pollo.jpg'
     },
