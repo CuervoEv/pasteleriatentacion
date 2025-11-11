@@ -1,0 +1,109 @@
+/* Fondo suave con degradado + imagen */
+body {
+  background: url('/img/fondo.jpg') no-repeat center center/cover fixed;
+}
+
+/* Tarjeta principal estilo glassmorphism */
+.card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+}
+
+/* Imagen del hojaldre */
+.card-img {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+  filter: brightness(0.96);
+  transition: transform .4s ease, filter .4s ease;
+}
+
+
+/* Textos */
+.card-title {
+  font-weight: 700;
+  color: #81580c; /* tu dorado marrón característico */
+  font-size: 1.8rem;
+}
+
+.card-text {
+  color: #4d3a22;
+  font-size: 1.1rem;
+}
+
+/* Labels */
+.form-label {
+  color: #81580c;
+}
+
+/* Selects */
+.form-select {
+  border-radius: 10px;
+  border: 2px solid rgba(129, 88, 12, .4);
+  color: #4d3a22;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: border-color .2s ease;
+}
+
+.form-select:focus {
+  border-color: #81580c;
+  box-shadow: 0 0 8px rgba(129, 88, 12, .3);
+}
+
+/* Input personalizado */
+input.form-control {
+  border-radius: 10px;
+  border: 2px solid rgba(129, 88, 12, .4);
+}
+
+input.form-control:focus {
+  border-color: #81580c;
+  box-shadow: 0 0 8px rgba(129, 88, 12, .3);
+}
+
+/* Botones */
+.btn-warning {
+  background-color: #c47a3f;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 22px;
+  color: #fff;
+  font-weight: 600;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.btn-warning:hover {
+  background-color: #a46330;
+  transform: scale(1.08);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* Resumen del carrito */
+.card-header {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
+  color: #a46330;
+}
+
+.border-bottom {
+  border-bottom: 1px solid rgba(129, 88, 12, 0.25) !important;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .card-img {
+    border-radius: 15px 15px 0 0;
+    min-height: 250px;
+  }
+}

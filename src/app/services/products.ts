@@ -325,7 +325,7 @@ export class ProductsService {
     nombre: 'Curso de Pastelería Básica', 
     precio: 180000, 
     descripcion: 'Aprende técnicas fundamentales de pastelería en 8 sesiones prácticas', 
-    imagen: '/img/cursos/pasteleria-basica.jpg',
+    imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/cup1.jpg',
     categoria: 'cursos'
   },
   { 
@@ -333,7 +333,7 @@ export class ProductsService {
     nombre: 'Curso de Decoración Avanzada', 
     precio: 320000, 
     descripcion: 'Domina técnicas profesionales de decoración en 12 sesiones intensivas', 
-    imagen: '/img/cursos/decoracion-avanzada.jpg',
+    imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/cup2.jpg',
     categoria: 'cursos'
   },
   { 
@@ -341,7 +341,7 @@ export class ProductsService {
     nombre: 'Curso de Panadería Artesanal', 
     precio: 250000, 
     descripcion: 'Especialízate en panadería artesanal con fermentación natural', 
-    imagen: '/img/cursos/panaderia-artesanal.jpg',
+    imagen: 'https://cuervoev.github.io/pasteleriatentacion/img/cup3.jpg',
     categoria: 'cursos'
   }
 ];

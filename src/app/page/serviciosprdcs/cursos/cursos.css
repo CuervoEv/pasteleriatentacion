@@ -1,0 +1,29 @@
+.card-glass {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card-info h5 {
+  color: #81580c;
+}
+
+.card-info ul li {
+  color: #5a3e06;
+}
+
+.btn-primary {
+  background-color: #81580c;
+  color: #fff;
+  border-radius: 25px;
+  padding: 10px 20px;
+  border: none;
+  transition: .2s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.08);
+  background-color: #a86c12;
+}
