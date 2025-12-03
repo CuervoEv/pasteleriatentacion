@@ -4,41 +4,113 @@
   <p><strong>¡Esperamos saber de ti pronto!</strong></p>
 </div>
 
-
+<!-- CONTENEDOR GENERAL DEL FORMULARIO -->
 <div class="container py-5">
-  <form class="row g-4 needs-validation" novalidate>
+  <!-- FORMULARIO REACTIVO DE ANGULAR -->
+  <form [formGroup]="contactForm" (ngSubmit)="enviar()" novalidate class="row g-4">
+    
+    <!-- CAMPO: NOMBRE -->
     <div class="col-md-6">
-      <label for="inputNombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="inputNombre" placeholder="Camila" required>
-      <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombre"
+        [class.is-invalid]="f.nombre.invalid && f.nombre.touched"
+        placeholder="Camila">
+      
+      <!-- MENSAJES DE ERROR -->
+      <div class="invalid-feedback" *ngIf="f.nombre.touched && f.nombre.errors">
+        <div *ngIf="f.nombre.errors?.required">
+          El nombre es obligatorio.
+        </div>
+        <div *ngIf="f.nombre.errors?.minlength">
+          Mínimo {{ f.nombre.errors?.minlength?.requiredLength }} caracteres.
+        </div>
+      </div>
     </div>
 
+    <!-- CAMPO: APELLIDO -->
     <div class="col-md-6">
-      <label for="inputApellido" class="form-label">Apellido</label>
-      <input type="text" class="form-control" id="inputApellido" placeholder="Martinez" required>
-      <div class="invalid-feedback">Por favor ingresa tu apellido.</div>
+      <label for="apellido" class="form-label">Apellido</label>
+      <input type="text" class="form-control" id="apellido" formControlName="apellido"
+        [class.is-invalid]="f.apellido.invalid && f.apellido.touched"
+        placeholder="Martinez">
+      
+      <div class="invalid-feedback" *ngIf="f.apellido.touched && f.apellido.errors">
+        <div *ngIf="f.apellido.errors?.required">
+          El apellido es obligatorio.
+        </div>
+        <div *ngIf="f.apellido.errors?.minlength">
+          Mínimo {{ f.apellido.errors?.minlength?.requiredLength }} caracteres.
+        </div>
+      </div>
     </div>
 
+    <!-- CAMPO: EMAIL -->
     <div class="col-md-6">
-      <label for="inputEmail" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail" placeholder="camila.martinez@email.com" required>
-      <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email"
+        [class.is-invalid]="f.email.invalid && f.email.touched"
+        placeholder="camila.martinez@email.com">
+      
+      <div class="invalid-feedback" *ngIf="f.email.touched && f.email.errors">
+        <div *ngIf="f.email.errors?.required">
+          El correo es obligatorio.
+        </div>
+        <div *ngIf="f.email.errors?.email">
+          Formato de correo inválido.
+        </div>
+      </div>
     </div>
 
+    <!-- CAMPO: CELULAR -->
     <div class="col-md-6">
-      <label for="inputCelular" class="form-label">Número de Celular</label>
-      <input type="tel" class="form-control" id="inputCelular" placeholder="1234567890" required>
-      <div class="invalid-feedback">Por favor ingresa tu número de celular.</div>
+      <label for="celular" class="form-label">Número de Celular</label>
+      <input type="tel" class="form-control" id="celular" formControlName="celular"
+        [class.is-invalid]="f.celular.invalid && f.celular.touched"
+        placeholder="1234567890">
+      
+      <div class="invalid-feedback" *ngIf="f.celular.touched && f.celular.errors">
+        <div *ngIf="f.celular.errors?.required">
+          El número de celular es obligatorio.
+        </div>
+        <div *ngIf="f.celular.errors?.minlength">
+          Mínimo {{ f.celular.errors?.minlength?.requiredLength }} caracteres.
+        </div>
+      </div>
     </div>
 
+    <!-- CAMPO: MENSAJE -->
     <div class="col-12">
-      <label for="inputMensaje" class="form-label">Mensaje</label>
-      <textarea class="form-control" id="inputMensaje" rows="4" placeholder="¡Quiero un pastel para mi cumpleaños 😊😊!" required></textarea>
-      <div class="invalid-feedback">Por favor escribe tu mensaje.</div>
+      <label for="mensaje" class="form-label">Mensaje</label>
+      <textarea class="form-control" id="mensaje" rows="4" formControlName="mensaje"
+        [class.is-invalid]="f.mensaje.invalid && f.mensaje.touched"
+        placeholder="¡Quiero un pastel para mi cumpleaños 😊😊!"></textarea>
+      
+      <div class="invalid-feedback" *ngIf="f.mensaje.touched && f.mensaje.errors">
+        <div *ngIf="f.mensaje.errors?.required">
+          El mensaje es obligatorio.
+        </div>
+        <div *ngIf="f.mensaje.errors?.minlength">
+          Mínimo {{ f.mensaje.errors?.minlength?.requiredLength }} caracteres.
+        </div>
+      </div>
     </div>
 
-    <div class="col-12 text-center">
-      <button type="submit" class="btn btn-primary px-5">Enviar</button>
+    <!-- BOTONES -->
+    <div class="col-12 text-center d-flex gap-3 justify-content-center">
+      <!-- Botón de ENVIAR -->
+      <button type="submit" class="btn btn-primary px-5" [disabled]="submitting">
+        <span *ngIf="!submitting">Enviar</span>
+        <span *ngIf="submitting">
+          <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+          Enviando...
+        </span>
+      </button>
+
+      <!-- Botón CANCELAR -->
+      <button type="button" class="btn btn-secondary px-5" (click)="cancelar()" [disabled]="submitting">
+        Cancelar
+      </button>
     </div>
+
   </form>
 </div>
