@@ -48,12 +48,14 @@ export class Contact {
 
     // Preparamos los datos (trim sencillo)
     const payload = {
-      nombre: (this.f.nombre.value || '').toString().trim(),
-      email: (this.f.email.value || '').toString().trim(),
-      asunto: (this.f.asunto.value || '').toString().trim(),
-      mensaje: (this.f.mensaje.value || '').toString().trim(),
-      createdAt: new Date().toISOString()
-    };
+    nombre: this.f.nombre.value.trim(),
+    apellido: this.f.apellido.value.trim(),
+    email: this.f.email.value.trim(),
+    celular: this.f.celular.value.trim(),
+    mensaje: this.f.mensaje.value.trim(),
+    createdAt: new Date().toISOString()
+  };
+
 
     try {
       // Descargamos JSON en el navegador
